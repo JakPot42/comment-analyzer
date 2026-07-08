@@ -1,5 +1,5 @@
 """
-Deterministic clustering engine — aggregates CommentAnalysis objects into
+Deterministic clustering engine -- aggregates CommentAnalysis objects into
 ThemeCluster and DocketSummary. No Claude involvement.
 """
 from __future__ import annotations

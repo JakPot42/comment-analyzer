@@ -2,7 +2,7 @@
 Regulations.gov API v4 client.
 
 Live mode: fetches public comments via api.regulations.gov.
-DEMO_MODE: returns seeded data from seed_data.py — no HTTP calls.
+DEMO_MODE: returns seeded data from seed_data.py -- no HTTP calls.
 
 API reference: https://open.fda.gov/apis/... (actually regulations.gov/developer)
 Endpoint: GET /v4/comments?filter[docketId]={docket_id}&page[size]=250

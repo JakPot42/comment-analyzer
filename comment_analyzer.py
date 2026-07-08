@@ -11,10 +11,9 @@ from __future__ import annotations
 
 import json
 
-import anthropic
+from claude_client import call_claude
 
 from config import (
-    ANTHROPIC_API_KEY,
     BATCH_SIZE,
     DEMO_MODE,
     MODEL,
@@ -54,15 +53,9 @@ def _analyze_batch(
     batch: list[RawComment],
     raw_by_id: dict[str, RawComment],
 ) -> list[CommentAnalysis]:
-    client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
     prompt = _build_batch_prompt(batch)
+    raw_json = call_claude(prompt, model=MODEL, max_tokens=2000, on_error="raise")
     try:
-        msg = client.messages.create(
-            model=MODEL,
-            max_tokens=2000,
-            messages=[{"role": "user", "content": prompt}],
-        )
-        raw_json = msg.content[0].text.strip()
         # Strip markdown code fences if present
         if raw_json.startswith("```"):
             raw_json = raw_json.split("```")[1]

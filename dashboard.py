@@ -1,4 +1,4 @@
-"""Rich terminal dashboard — ASCII-safe for Windows cp1252 console."""
+"""Rich terminal dashboard -- ASCII-safe for Windows cp1252 console."""
 from __future__ import annotations
 
 import json
@@ -40,7 +40,7 @@ def print_banner() -> None:
 
 def print_summary(summary: DocketSummary) -> None:
     """Print volume and stance/stakeholder breakdown tables."""
-    console.rule(f"[bold]{summary.docket_id} — Comment Analysis[/bold]")
+    console.rule(f"[bold]{summary.docket_id} -- Comment Analysis[/bold]")
     console.print(f"  [bold]{summary.title}[/bold]")
     console.print(f"  {summary.agency}  |  {summary.fr_citation}  |  {summary.comment_period}")
     console.print(f"  [bold]Total analyzed: {summary.total_analyzed}[/bold]")
@@ -112,17 +112,20 @@ def print_comments(
     show = analyses[:max_show]
 
     t = Table(box=box.SIMPLE, show_header=True, header_style="bold")
-    t.add_column("#", width=4, justify="right")
-    t.add_column("Submitter", width=22)
-    t.add_column("Org", width=24)
-    t.add_column("Stance", width=8)
-    t.add_column("Theme", width=22)
-    t.add_column("Key Argument", width=40)
+    # overflow="fold": on a narrow console this wide table WRAPS cells instead
+    # of truncating with a Unicode ellipsis (U+2026), which would crash a strict
+    # OEM console (cp850/cp437). Keeps output pure ASCII at any console width.
+    t.add_column("#", width=4, justify="right", overflow="fold")
+    t.add_column("Submitter", width=22, overflow="fold")
+    t.add_column("Org", width=24, overflow="fold")
+    t.add_column("Stance", width=8, overflow="fold")
+    t.add_column("Theme", width=22, overflow="fold")
+    t.add_column("Key Argument", width=40, overflow="fold")
 
     for i, a in enumerate(show, 1):
         color = STANCE_COLORS.get(a.stance, "white")
-        org = (a.organization or "—")[:24]
-        arg = a.key_argument[:40] if a.key_argument else "—"
+        org = (a.organization or "--")[:24]
+        arg = a.key_argument[:40] if a.key_argument else "--"
         t.add_row(
             str(i),
             a.submitter_name[:22],
@@ -141,7 +144,7 @@ def print_comments(
 def print_memo(memo_text: str, docket_id: str) -> None:
     console.print(Panel(
         memo_text,
-        title=f"[bold]Decision Memorandum — {docket_id}[/bold]",
+        title=f"[bold]Decision Memorandum -- {docket_id}[/bold]",
         border_style="cyan",
         padding=(1, 2),
     ))

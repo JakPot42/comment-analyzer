@@ -53,7 +53,7 @@ def cli() -> None:
 
 
 def _run_docket(docket_id: str, demo_mode: bool) -> tuple:
-    """Shared: fetch → analyze → build_summary. Returns (summary, analyses)."""
+    """Shared: fetch -> analyze -> build_summary. Returns (summary, analyses)."""
     comments = fetch_comments(docket_id, demo_mode=demo_mode)
     if not comments:
         console.print(f"[red]No comments found for docket {docket_id}.[/red]")
@@ -187,7 +187,7 @@ def demo() -> None:
     print_banner()
     docket_id = DEMO_DOCKET_ID
 
-    console.rule(f"[bold]Demo 1: Comment Volume Summary — {docket_id}[/bold]")
+    console.rule(f"[bold]Demo 1: Comment Volume Summary -- {docket_id}[/bold]")
     summary, analyses = _run_docket(docket_id, demo_mode=True)
     print_summary(summary)
 
@@ -197,15 +197,15 @@ def demo() -> None:
     console.rule("[bold]Demo 3: Browse All Comments[/bold]")
     print_comments(analyses)
 
-    console.rule("[bold]Demo 4: Filter — OPPOSE Comments[/bold]")
+    console.rule("[bold]Demo 4: Filter -- OPPOSE Comments[/bold]")
     oppose = filter_analyses(analyses, stance="OPPOSE")
     print_comments(oppose)
 
-    console.rule("[bold]Demo 5: Filter — ASSESSMENT_METHODOLOGY Theme[/bold]")
+    console.rule("[bold]Demo 5: Filter -- ASSESSMENT_METHODOLOGY Theme[/bold]")
     assessment = filter_analyses(analyses, theme="ASSESSMENT_METHODOLOGY")
     print_comments(assessment)
 
-    console.rule("[bold]Demo 6: Filter — INDUSTRY Stakeholder[/bold]")
+    console.rule("[bold]Demo 6: Filter -- INDUSTRY Stakeholder[/bold]")
     industry = filter_analyses(analyses, stakeholder_type="INDUSTRY")
     print_comments(industry)
 

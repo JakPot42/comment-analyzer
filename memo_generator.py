@@ -8,9 +8,9 @@ from __future__ import annotations
 
 from datetime import date
 
-import anthropic
+from claude_client import call_claude
 
-from config import ANTHROPIC_API_KEY, DEMO_MODE, MODEL, THEMES
+from config import DEMO_MODE, MODEL, THEMES
 from models import DocketSummary
 
 
@@ -24,16 +24,12 @@ def generate_memo(
         from seed_data import DEMO_MEMO
         return DEMO_MEMO
 
-    client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
-    try:
-        msg = client.messages.create(
-            model=MODEL,
-            max_tokens=1500,
-            messages=[{"role": "user", "content": _build_memo_prompt(summary)}],
-        )
-        return msg.content[0].text.strip()
-    except Exception as exc:
-        raise RuntimeError(f"Claude memo generation error: {exc}") from exc
+    return call_claude(
+        _build_memo_prompt(summary),
+        model=MODEL,
+        max_tokens=1500,
+        on_error="raise",
+    )
 
 
 def _build_memo_prompt(summary: DocketSummary) -> str:
@@ -41,8 +37,8 @@ def _build_memo_prompt(summary: DocketSummary) -> str:
 
     # Build theme summary lines
     theme_lines = "\n".join(
-        f"  {c.theme_label}: {c.total} comments — "
-        f"stances: {c.stance_counts} — "
+        f"  {c.theme_label}: {c.total} comments -- "
+        f"stances: {c.stance_counts} -- "
         f"stakeholders: {c.stakeholder_counts}"
         for c in summary.theme_clusters
     )
@@ -60,7 +56,7 @@ def _build_memo_prompt(summary: DocketSummary) -> str:
         "DECISION MEMORANDUM\n"
         "TO: [Agency Head]\n"
         "FROM: Office of Regulatory Analysis\n"
-        f"RE: Public Comment Analysis — {summary.title}\n"
+        f"RE: Public Comment Analysis -- {summary.title}\n"
         f"    Docket {summary.docket_id}"
         + (f"  |  {summary.fr_citation}" if summary.fr_citation else "")
         + "\n"
@@ -70,7 +66,7 @@ def _build_memo_prompt(summary: DocketSummary) -> str:
         "III. KEY THEMES BY STAKEHOLDER TYPE\n"
         "IV. AREAS OF CONSENSUS AND CONTENTION\n"
         "V. RECOMMENDED AGENCY CONSIDERATIONS (3-5 numbered items)\n\n"
-        "Use formal government prose. Be specific — reference actual numbers and "
+        "Use formal government prose. Be specific -- reference actual numbers and "
         "commenter names/organizations where available. Do not hedge.\n\n"
         f"DOCKET: {summary.docket_id}\n"
         f"TITLE: {summary.title}\n"

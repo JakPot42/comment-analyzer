@@ -2,11 +2,13 @@
 import os
 from dotenv import load_dotenv
 
+from demo_mode import is_demo_mode
+
 load_dotenv()
 
 ANTHROPIC_API_KEY: str = os.getenv("ANTHROPIC_API_KEY", "")
 REGULATIONS_API_KEY: str = os.getenv("REGULATIONS_API_KEY", "")
-DEMO_MODE: bool = os.getenv("DEMO_MODE", "True").lower() not in ("false", "0", "no")
+DEMO_MODE: bool = is_demo_mode()  # shared permissive convention
 MODEL: str = os.getenv("RCA_MODEL", "claude-haiku-4-5-20251001")
 
 REGS_BASE = "https://api.regulations.gov/v4"
@@ -16,7 +18,7 @@ REGS_RATE_LIMIT = 0.3  # seconds between API calls (1000 req/hr limit)
 MAX_COMMENTS = 100   # max comments to fetch in live mode
 BATCH_SIZE = 10      # comments per Claude classification batch
 
-# Default demo docket — CMMC 2.0 proposed rule
+# Default demo docket -- CMMC 2.0 proposed rule
 DEMO_DOCKET_ID = "DoD-2023-OS-0063"
 
 DOCKET_META: dict[str, dict] = {

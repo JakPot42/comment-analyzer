@@ -1,5 +1,5 @@
 """
-Seeded demo data for DEMO_MODE — CMMC 2.0 proposed rule (DoD-2023-OS-0063).
+Seeded demo data for DEMO_MODE -- CMMC 2.0 proposed rule (DoD-2023-OS-0063).
 
 20 realistic public comments representing the full stakeholder landscape.
 Analyses are pre-classified to avoid requiring API keys in demo mode.
@@ -331,7 +331,7 @@ DECISION MEMORANDUM
 
 TO:      Under Secretary of Defense for Acquisition and Sustainment
 FROM:    Office of Regulatory Analysis
-RE:      Public Comment Analysis — Cybersecurity Maturity Model Certification (CMMC) Program
+RE:      Public Comment Analysis -- Cybersecurity Maturity Model Certification (CMMC) Program
          Docket DoD-2023-OS-0063  |  88 FR 89058
 DATE:    June 24, 2026
 
@@ -340,7 +340,7 @@ DATE:    June 24, 2026
 I. EXECUTIVE SUMMARY
 
 The CMMC 2.0 proposed rule attracted substantial public comment across all stakeholder
-categories. Industry commenters — the largest segment at 45% — broadly support the
+categories. Industry commenters -- the largest segment at 45% -- broadly support the
 framework while requesting implementation timeline extensions and cost mitigation for
 mid-tier contractors. No theme commanded sufficient opposition to suggest the rule
 requires fundamental revision; however, Assessment Methodology concerns represent the
@@ -356,17 +356,17 @@ II. COMMENT VOLUME AND DISTRIBUTION
 Total comments analyzed: 20 (representative sample)
 
 By Stakeholder Type:
-  Industry    9 comments (45%)  — Large primes, mid-tier firms, trade associations
-  Citizens    4 comments (20%)  — Private individuals, veterans, small contractors
-  Academic    3 comments (15%)  — University researchers, policy institutes
-  Advocacy    2 comments (10%)  — Public interest organizations, digital rights groups
-  Government  2 comments (10%)  — SBA Office of Advocacy, State of Maryland CISO
+  Industry    9 comments (45%)  -- Large primes, mid-tier firms, trade associations
+  Citizens    4 comments (20%)  -- Private individuals, veterans, small contractors
+  Academic    3 comments (15%)  -- University researchers, policy institutes
+  Advocacy    2 comments (10%)  -- Public interest organizations, digital rights groups
+  Government  2 comments (10%)  -- SBA Office of Advocacy, State of Maryland CISO
 
 By Stance:
-  Modify     10 comments (50%)  — Support with requested changes
-  Support     6 comments (30%)  — Support rule as proposed
-  Oppose      3 comments (15%)  — Oppose rule
-  Neutral     1 comment  ( 5%)  — Informational / procedural
+  Modify     10 comments (50%)  -- Support with requested changes
+  Support     6 comments (30%)  -- Support rule as proposed
+  Oppose      3 comments (15%)  -- Oppose rule
+  Neutral     1 comment  ( 5%)  -- Informational / procedural
 
 By Primary Theme:
   Assessment Methodology      5 comments (25%)
@@ -382,7 +382,7 @@ By Primary Theme:
 
 III. KEY THEMES BY STAKEHOLDER TYPE
 
-INDUSTRY (9 comments — 8 SUPPORT/MODIFY, 1 OPPOSE):
+INDUSTRY (9 comments -- 8 SUPPORT/MODIFY, 1 OPPOSE):
 Large prime contractors (Lockheed Martin, Boeing, RTX, General Dynamics, BAE Systems)
 support the CMMC security objectives but seek 18-24 month phased implementation timelines.
 Core industry concerns center on: (a) C3PAO assessment cost and marketplace transparency,
@@ -390,25 +390,25 @@ Core industry concerns center on: (a) C3PAO assessment cost and marketplace tran
 process clarity. BAE Systems raises unresolved foreign subsidiary obligations under
 ITAR-controlled programs that affect allied-nation prime contractors.
 
-GOVERNMENT (2 comments — 2 MODIFY/SUPPORT):
+GOVERNMENT (2 comments -- 2 MODIFY/SUPPORT):
 SBA Office of Advocacy formally invokes the Regulatory Flexibility Act, flagging
 disproportionate burden on small contractors and requesting a tiered compliance pathway.
-Maryland CISO expresses support and highlights alignment with state NIST mandates — a
+Maryland CISO expresses support and highlights alignment with state NIST mandates -- a
 positive signal for federal-state compliance interoperability.
 
-ACADEMIC (3 comments — 3 MODIFY):
+ACADEMIC (3 comments -- 3 MODIFY):
 All three academic commenters request modifications on methodological grounds. MIT CSAIL
 identifies interpretive latitude in assessment criteria that will produce inconsistent
 C3PAO outcomes. Georgia Tech flags a specific FIPS 140-3 inconsistency in Practice 3.13.10.
 CSIS proposes risk-based tiering as an alternative to the binary Level 2 threshold.
 
-ADVOCACY (2 comments — 1 OPPOSE, 1 MODIFY):
+ADVOCACY (2 comments -- 1 OPPOSE, 1 MODIFY):
 Public Citizen opposes the rule's scope, arguing commercial cloud platforms handling CUI
 should be covered. Alliance for Digital Innovation requests resolution of the FedRAMP/CMMC
 overlap for cloud service providers. Both commenters argue rule boundaries are drawn too
 narrowly.
 
-CITIZEN (4 comments — 2 SUPPORT, 1 OPPOSE, 1 NEUTRAL):
+CITIZEN (4 comments -- 2 SUPPORT, 1 OPPOSE, 1 NEUTRAL):
 Citizen comments split between individuals who support stronger cyber requirements (often
 citing CUI protection rationale and defense experience) and small contractors who cannot
 absorb C3PAO assessment costs. The anonymous small contractor comment ("12 employees,
@@ -442,13 +442,13 @@ CONTENTION:
 
 V. RECOMMENDED AGENCY CONSIDERATIONS
 
-1. IMPLEMENTATION TIMELINE — PHASED ENFORCEMENT:
+1. IMPLEMENTATION TIMELINE -- PHASED ENFORCEMENT:
    Consider a phased enforcement schedule: Level 1 by month 12, Level 2 by month 24. This
    directly responds to the MODIFY position held by 50% of commenters and addresses the
    supply chain cascade risk articulated by multiple prime contractors. A published C3PAO
    readiness milestone at month 9 would provide supply chain visibility.
 
-2. SMB COST MITIGATION — FORMAL RESPONSE REQUIRED:
+2. SMB COST MITIGATION -- FORMAL RESPONSE REQUIRED:
    SBA's Regulatory Flexibility Act comment requires a formal agency response in the final
    rule preamble. The record supports developing a cost-share or subsidized assessment pilot
    for contractors with fewer than 500 employees or contracts below $5M. Failure to address
@@ -460,7 +460,7 @@ V. RECOMMENDED AGENCY CONSIDERATIONS
    flag this as a prerequisite for supply chain compliance planning. This is a low-cost, high-
    impact agency action.
 
-4. TECHNICAL CORRECTION — PRACTICE 3.13.10:
+4. TECHNICAL CORRECTION -- PRACTICE 3.13.10:
    Georgia Tech's FIPS 140-3 inconsistency comment should be forwarded to OUSD(R&E) for
    expert review. If substantiated, issue a pre-final-rule technical correction rather than a
    post-publication errata notice. FIPS 140-3 alignment affects all Level 2 assessments.
@@ -468,6 +468,6 @@ V. RECOMMENDED AGENCY CONSIDERATIONS
 5. CLOUD / FEDRAMP RECIPROCITY GUIDANCE:
    Issue supplementary guidance on FedRAMP-to-CMMC reciprocity for cloud service providers
    before the final rule takes effect. The overlap was raised independently by Public Citizen
-   and Alliance for Digital Innovation — representing both sides of the scope debate — which
+   and Alliance for Digital Innovation -- representing both sides of the scope debate -- which
    signals a structural ambiguity in the rule text rather than a one-sided stakeholder concern.
 """
